@@ -24,11 +24,13 @@ class Search extends Component{
     handleSearchTermChange = (event) => {
       this.setState({searchTerm: event.target.value})
   };
+  //* displays search terms *//
+  //* <h1>{this.state.searchTerm}</h1> *//
 render () {
   return(
   <div className="search">
     <header>
-      <h1>{this.state.searchTerm}</h1>
+      <h1>svideo</h1>
       <input onChange= {this.handleSearchTermChange}
         // onChange= {this.handleSearchTermChange,bind()}
         //the bad-way of doing it
@@ -37,7 +39,13 @@ render () {
          placeholder="search"/>
     </header>
     <div>
-        {preload.shows.map(show => <ShowCard key={show.imdbID} {...show} />)}
+        {preload.shows
+          .filter(
+            show =>
+            `${show.title} ${show.description}`. toUpperCase().
+        indexOf(this.state.searchTerm.toUpperCase()) >= 0
+      )
+          .map(show => <ShowCard key={show.imdbID} {...show} />)}
     </div>
   </div>
 );
