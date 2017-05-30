@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 
 //line below you need a parathesis not a curlly bracelt because you want it to return immediately
-const x = 5;
 const App = () => (
   <div className="app">
     <div className="landing">
