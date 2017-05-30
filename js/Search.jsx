@@ -16,7 +16,7 @@ class Search extends Component{
   //   //second way of doing it
   //   // this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   //   }
-
+//simple way of writing state and handle...
   state = {
     searchTerm: ''
   };
@@ -28,7 +28,7 @@ render () {
   return(
   <div className="search">
     <header>
-      <h1>svideo</h1>
+      <h1>{this.state.searchTerm}</h1>
       <input onChange= {this.handleSearchTermChange}
         // onChange= {this.handleSearchTermChange,bind()}
         //the bad-way of doing it
