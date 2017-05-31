@@ -2,6 +2,7 @@
 
 import React, { Component }from 'react';
 import ShowCard from './ShowCard';
+import Header from './Header';
 
 
 
@@ -33,31 +34,23 @@ class Search extends Component{
   };
   //* displays search terms *//
   //* <h1>{this.state.searchTerm}</h1> *//
-render () {
-  return(
-  <div className="search">
-    <header>
-      <h1>svideo</h1>
-      <input onChange= {this.handleSearchTermChange}
-        // onChange= {this.handleSearchTermChange,bind()}
-        //the bad-way of doing it
-         value={this.state.searchTerm}
-         type="text"
-         placeholder="search"/>
-    </header>
-    <div>
-        {this.props.shows
-          .filter(
-            show =>
-            `${show.title} ${show.description}`. toUpperCase().
-        indexOf(this.state.searchTerm.toUpperCase()) >= 0
-      )
-          .map(show => <ShowCard key={show.imdbID} {...show} />)}
-    </div>
-  </div>
-);
+  render() {
+    return (
+      <div className="search">
+        <Header searchTerm={this.state.searchTerm} showSearch handleSearchTermChange={this.handleSearchTermChange} />
+        <div>
+          {this.props.shows
+            .filter(
+              show =>
+                `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+            )
+            .map(show => <ShowCard key={show.imdbID} {...show} />)}
+        </div>
+      </div>
+    );
+  }
 }
-}
+
 export default Search;
 
 
