@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -22,21 +22,28 @@ const Image = styled.img`
 `;
 
 
+class ShowCard extends Component {
+  shouldComponentUpdate () {
+    return false;
+  }
+  props: Show;
+  render (){
+    return(
 
-const ShowCard = (props: Show) => (
+// const ShowCard = (props: Show) => (
   //replace div with <Wrapper>
   // <div className="show-card">
-  <Wrapper to={`/details/${props.imdbID}`}>
-      <Image alt={`${props.title} Show Poster`} src={`/public/img/posters/${props.poster}`} />
+  <Wrapper to={`/details/${this.props.imdbID}`}>
+      <Image alt={`${this.props.title} Show Poster`} src={`/public/img/posters/${this.props.poster}`} />
       <div>
-        <h3>{props.title}</h3>
-        <h4>({props.year})</h4>
-        <p>{props.description}</p>
+        <h3>{this.props.title}</h3>
+        <h4>({this.props.year})</h4>
+        <p>{this.props.description}</p>
       </div>
     </Wrapper>
-
 );
-
+}
+}
 
 //run-time check to see if you are including the write properties
 //shape means object.
