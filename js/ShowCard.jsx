@@ -1,5 +1,8 @@
+// @flow
+
 import React from 'react';
-import { string } from 'prop-types';
+
+// $FlowFixMe
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -19,7 +22,14 @@ const Image = styled.img`
 
 
 
-const ShowCard = props => (
+const ShowCard = (props: {
+
+    poster: string,
+    title: string,
+    year: string,
+    description: string
+  }
+) => (
   //replace div with <Wrapper>
   // <div className="show-card">
     <Wrapper>
@@ -37,11 +47,11 @@ const ShowCard = props => (
 //run-time check to see if you are including the write properties
 //shape means object.
 //if you do not put isRequired it means its optional
-ShowCard.propTypes = {
-
-    poster: string.isRequired,
-    title: string.isRequired,
-    year: string.isRequired,
-    description: string.isRequired
-};
+// ShowCard.propTypes = {
+//
+//     poster: string.isRequired,
+//     title: string.isRequired,
+//     year: string.isRequired,
+//     description: string.isRequired
+// };
 export default ShowCard;
