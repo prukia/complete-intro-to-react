@@ -2,7 +2,9 @@
 
 import React, { Component }from 'react';
 import ShowCard from './ShowCard';
-import preload from '../data.json';
+
+
+
 // const Search = () => <h1>hi lol this is search</h1>;
 /* prints out actual JSON */
 /* <pre><code>{}</code>{{JSON.stringify(preload, null, 4)}}</pre> */
@@ -21,6 +23,9 @@ class Search extends Component{
 //simple way of writing state and handle...
   state = {
     searchTerm: ''
+  };
+  props: {
+    shows: Array<Show>
   };
     //way to let react know 'hey, um updating this you need to render'!
     handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
@@ -41,7 +46,7 @@ render () {
          placeholder="search"/>
     </header>
     <div>
-        {preload.shows
+        {this.props.shows
           .filter(
             show =>
             `${show.title} ${show.description}`. toUpperCase().
