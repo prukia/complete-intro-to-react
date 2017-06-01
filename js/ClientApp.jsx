@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 // import Perf from 'react-addons-perf';
 import App from './App';
 
@@ -9,7 +10,11 @@ import App from './App';
 // Perf.start();
 
 const renderApp = () => {
-  render(<App />, document.getElementById('app'));
+  render(
+    <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('app'));
 };
 renderApp();
 
