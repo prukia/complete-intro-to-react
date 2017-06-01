@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { render } from 'react-dom';
 // import Perf from 'react-addons-perf';
@@ -14,8 +15,6 @@ renderApp();
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-  renderApp();
-});
+    renderApp();
+  });
 }
-
-render(<App />, document.getElementById('app'));

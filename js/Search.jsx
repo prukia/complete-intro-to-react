@@ -1,6 +1,7 @@
 // @flow
 
-import React, { Component }from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import ShowCard from './ShowCard';
 import Header from './Header';
 
@@ -11,48 +12,25 @@ import Header from './Header';
 /* <pre><code>{}</code>{{JSON.stringify(preload, null, 4)}}</pre> */
 
 //converted to ES6 class
-class Search extends Component{
-  // constructor (props){
-  //   super(props)
-  //   //initializing state
-  //   this.state = {
-  //     searchTerm: 'this is some sort of debug statement'
-  //   };
-  //   //second way of doing it
-  //   // this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
-  //   }
-//simple way of writing state and handle...
-  state = {
-    searchTerm: ''
-  };
-  props: {
-    shows: Array<Show>
-  };
-    //way to let react know 'hey, um updating this you need to render'!
-    handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
-      this.setState({searchTerm: event.target.value})
-  };
-  //* displays search terms *//
-  //* <h1>{this.state.searchTerm}</h1> *//
-  render() {
-    return (
-      <div className="search">
-        <Header searchTerm={this.state.searchTerm} showSearch handleSearchTermChange={this.handleSearchTermChange} />
-        <div>
-          {this.props.shows
-            .filter(
-              show =>
-                `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
-            )
-            .map(show => <ShowCard key={show.imdbID} {...show} />)}
-        </div>
-      </div>
-    );
-  }
-}
+const Search = (props: {
+  searchTerm: string, // eslint-disable-line react/no-unused-prop-types
+  shows: Array<Show>
+}) => (
+  <div className="search">
+    <Header showSearch />
+    <div>
+      {props.shows
+        .filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(props.searchTerm.toUpperCase()) >= 0)
+        .map(show => <ShowCard key={show.imdbID} {...show} />)}
+    </div>
+  </div>
+);
 
-export default Search;
+const mapStateToProps = state => ({
+  searchTerm: state.searchTerm
+});
 
+export default connect(mapStateToProps)(Search);
 
-//state//
-// a component can have its own state...only a component can modify it's own state
+    //state//
+    // a component can have its own state...only a component can modify it's own state

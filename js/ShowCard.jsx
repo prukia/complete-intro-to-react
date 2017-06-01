@@ -1,6 +1,6 @@
 // @flow
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const Wrapper = styled((Link: any))`
   border: 2px solid #333;
   border-radius: 4px;
   margin-bottom: 25px;
-  padding-right 10px;
+  padding-right: 10px;
   overflow: hidden;
   color: black;
   text-decoration: none;
@@ -18,32 +18,35 @@ const Wrapper = styled((Link: any))`
 const Image = styled.img`
   width: 46%;
   float: left;
-  margin-left: 10px;
+  margin-right: 10px;
 `;
 
 
-class ShowCard extends Component {
-  shouldComponentUpdate () {
-    return false;
-  }
-  props: Show;
-  render (){
-    return(
+
 
 // const ShowCard = (props: Show) => (
   //replace div with <Wrapper>
   // <div className="show-card">
-  <Wrapper to={`/details/${this.props.imdbID}`}>
-      <Image alt={`${this.props.title} Show Poster`} src={`/public/img/posters/${this.props.poster}`} />
-      <div>
-        <h3>{this.props.title}</h3>
-        <h4>({this.props.year})</h4>
-        <p>{this.props.description}</p>
-      </div>
-    </Wrapper>
-);
-}
-}
+  class ShowCard extends Component {
+    shouldComponentUpdate() {
+      return false;
+    }
+    props: Show;
+    render() {
+      return (
+        <Wrapper to={`/details/${this.props.imdbID}`}>
+          <Image alt={`${this.props.title} Show Poster`} src={`/public/img/posters/${this.props.poster}`} />
+          <div>
+            <h3>{this.props.title}</h3>
+            <h4>({this.props.year})</h4>
+            <p>{this.props.description}</p>
+          </div>
+        </Wrapper>
+      );
+    }
+  }
+
+  export default ShowCard;
 
 //run-time check to see if you are including the write properties
 //shape means object.
@@ -55,4 +58,3 @@ class ShowCard extends Component {
 //     year: string.isRequired,
 //     description: string.isRequired
 // };
-export default ShowCard;
