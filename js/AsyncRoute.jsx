@@ -3,7 +3,7 @@
 import React, { Component }from 'react';
 import Spinner from './Spinner';
 
-class AsyncRoute extends React.Component {
+class AsyncRoute extends Component {
   state = {
     loaded: false
   };
