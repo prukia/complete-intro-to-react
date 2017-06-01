@@ -23,7 +23,6 @@ const Image = styled.img`
 
 
 
-
 // const ShowCard = (props: Show) => (
   //replace div with <Wrapper>
   // <div className="show-card">
@@ -34,7 +33,7 @@ const Image = styled.img`
     props: Show;
     render() {
       return (
-        <Wrapper to={`/details/${this.props.imdbID}`}>
+        <Wrapper className="show-card" to={`/details/${this.props.imdbID}`}>
           <Image alt={`${this.props.title} Show Poster`} src={`/public/img/posters/${this.props.poster}`} />
           <div>
             <h3>{this.props.title}</h3>
@@ -47,7 +46,6 @@ const Image = styled.img`
   }
 
   export default ShowCard;
-
 //run-time check to see if you are including the write properties
 //shape means object.
 //if you do not put isRequired it means its optional

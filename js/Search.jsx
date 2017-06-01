@@ -6,12 +6,13 @@ import ShowCard from './ShowCard';
 import Header from './Header';
 
 
-
 // const Search = () => <h1>hi lol this is search</h1>;
 /* prints out actual JSON */
 /* <pre><code>{}</code>{{JSON.stringify(preload, null, 4)}}</pre> */
 
 //converted to ES6 class
+// @flow
+
 const Search = (props: {
   searchTerm: string, // eslint-disable-line react/no-unused-prop-types
   shows: Array<Show>
@@ -30,6 +31,7 @@ const mapStateToProps = state => ({
   searchTerm: state.searchTerm
 });
 
+export const Unwrapped = Search;
 export default connect(mapStateToProps)(Search);
 
     //state//
