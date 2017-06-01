@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 // import Perf from 'react-addons-perf';
 import App from './App';
 
-//Perf tools on for dev not production
+// Perf tools on for dev not production
 // window.Perf = Perf;
 // Perf.start();
 

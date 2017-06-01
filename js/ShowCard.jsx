@@ -24,7 +24,7 @@ const Image = styled.img`
 
 
 // const ShowCard = (props: Show) => (
-  //replace div with <Wrapper>
+  // replace div with <Wrapper>
   // <div className="show-card">
   class ShowCard extends Component {
     shouldComponentUpdate() {
@@ -46,13 +46,3 @@ const Image = styled.img`
   }
 
   export default ShowCard;
-//run-time check to see if you are including the write properties
-//shape means object.
-//if you do not put isRequired it means its optional
-// ShowCard.propTypes = {
-//
-//     poster: string.isRequired,
-//     title: string.isRequired,
-//     year: string.isRequired,
-//     description: string.isRequired
-// };

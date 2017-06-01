@@ -7,7 +7,7 @@ import Header from './Header';
 
 
 
-//converted to ES6 class
+// converted to ES6 class
 
 const Search = (props: {
   searchTerm: string, // eslint-disable-line react/no-unused-prop-types
