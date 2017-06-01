@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { shallow, render } from 'enzyme';
 import { Provider } from 'react-redux';
