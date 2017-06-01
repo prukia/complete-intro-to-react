@@ -1,6 +1,6 @@
 // @flow
 import { combineReducers } from 'redux';
-import { SET_SEARCH_TERM } from './actions';
+import { SET_SEARCH_TERM, ADD_API_DATA } from './actions';
 
 // new way of writing reducers...single action reducers
 const searchTerm = (state='', action: Action) => {
@@ -10,7 +10,15 @@ const searchTerm = (state='', action: Action) => {
   return state;
 };
 
-const rootReducer = combineReducers({ searchTerm });
+const apiData = (state = {}, action: Action) =>{
+  if (action.type === ADD_API_DATA) {
+    return Object.assign({}, state, { [action.payload.imdbID]: action.payload
+     })
+  }
+  return state;
+};
+
+const rootReducer = combineReducers({ searchTerm, apiData });
 // ({ searchTerm }) is the same as ({ searchTerm: searchTerm })
 
 export default rootReducer;
